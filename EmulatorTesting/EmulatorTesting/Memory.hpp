@@ -7,8 +7,8 @@ enum class OpCode : byte
 	HLT = 1 << 0,	// 0000 0000	Halt the processor
 
 	MOV = 1 << 1,	// 0000 0001	Copies the data from register zero to register one
-	ADD = 1 << 2,	// 0000 0010	Adds register zero and register one and stores the result in register zero
-	SUB = 1 << 3,	// 0000 0100	Subtracts register zero from register one and stores the result in register zero
+	ADD = 1 << 2,	// 0000 0010	Adds register zero and register one and stores the result in the specified register
+	SUB = 1 << 3,	// 0000 0100	Subtracts register zero from register one and stores the result in the specified register
 	JMP = 1 << 4,	// 0000 1000	Jumps to the specified memory address
 
 	STO = 1 << 5,	// 0001 0000	Stores the data specified in register zero

@@ -14,7 +14,7 @@ void loadProgram()
 	ram.setInstruction(OpCode::STO, 10);	// Store the value 10 in register zero
 	ram.setInstruction(OpCode::MOV);		// Move the value of register zero to register one
 	ram.setInstruction(OpCode::STO, 9);		// Store the value 9 in register zero
-	ram.setInstruction(OpCode::ADD, 0);		// Add register zero to register one and store the result back in register zero
+	ram.setInstruction(OpCode::ADD, 0);		// Add register zero to register one and store the result in register zero
 	ram.setInstruction(OpCode::PRT, 0);		// Print the contents of register zero
 	ram.setInstruction(OpCode::HLT);		// Exit the program
 }
@@ -44,7 +44,10 @@ void fetchInstruction()
 		break;
 
 	case static_cast<byte>(OpCode::SUB) :
-		register0 = (register0 - register1);
+		if (data == 0)
+			register0 = register1 - register0;
+		else
+			register1 = register1 - register0;
 		break;
 
 	case static_cast<byte>(OpCode::JMP) :
